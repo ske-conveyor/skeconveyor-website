@@ -1,26 +1,28 @@
 /* ===========================================================
    SK ENGINEERS & CONVEYOR SYSTEM — brand stylesheet
-   Palette:
-     --navy     #16232F  (steel/dark base)
-     --orange   #E8622C  (safety-orange accent, from conveyor rollers)
-     --paper    #F5F2EA  (warm background)
-     --steel    #2E4053  (secondary panels)
+   Palette (pulled directly from the logo file):
+     --navy     #0B2A55  (deep blue, header/dark base)
+     --orange   #0049AC  (logo royal blue — variable name kept so
+                          existing rules don't need renaming, but
+                          the VALUE is now the brand blue)
+     --paper    #F7F8FA  (clean off-white background)
+     --steel    #143564  (secondary panels)
      --slate    #4B5563  (body text)
    Type:
-     Display  -> 'Oswald' (condensed, industrial, uppercase)
+     Display  -> 'Playfair Display' (serif, matches the logo's serif "SK")
      Body     -> 'Inter'
      Utility  -> 'IBM Plex Mono' (spec numbers, labels)
    =========================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap');
 
 :root{
-  --navy:#16232F;
-  --orange:#E8622C;
-  --paper:#F5F2EA;
-  --steel:#2E4053;
+  --navy:#0B2A55;
+  --orange:#0049AC;
+  --paper:#F7F8FA;
+  --steel:#143564;
   --slate:#4B5563;
-  --line:#DCD6C7;
+  --line:#DCE3EE;
 }
 
 *{box-sizing:border-box;margin:0;padding:0;}
@@ -36,11 +38,10 @@ body{
 }
 
 h1,h2,h3,h4{
-  font-family:'Oswald',sans-serif;
+  font-family:'Playfair Display',serif;
   color:var(--navy);
-  text-transform:uppercase;
-  letter-spacing:0.03em;
-  line-height:1.15;
+  letter-spacing:0.01em;
+  line-height:1.2;
 }
 
 a{color:inherit;text-decoration:none;}
@@ -74,11 +75,12 @@ img{max-width:100%;display:block;}
 
 /* ---------- Header ---------- */
 header{
-  background:var(--navy);
+  background:#fff;
   position:sticky;
   top:0;
   z-index:50;
   border-bottom:3px solid var(--orange);
+  box-shadow:0 2px 10px rgba(11,42,85,.06);
 }
 .nav-inner{
   display:flex;
@@ -92,32 +94,29 @@ header{
   display:flex;
   align-items:center;
   gap:12px;
-  color:#fff;
+  color:var(--navy);
 }
 .brand-mark{
-  width:40px;height:40px;
-  background:var(--orange);
-  display:flex;align-items:center;justify-content:center;
-  font-family:'Oswald',sans-serif;
-  font-weight:700;
-  color:var(--navy);
-  font-size:20px;
+  width:48px;height:48px;
   flex-shrink:0;
+  object-fit:contain;
 }
 .brand-text{
-  font-family:'Oswald',sans-serif;
-  text-transform:uppercase;
-  font-size:16px;
-  letter-spacing:0.04em;
+  font-family:'Playfair Display',serif;
+  font-weight:700;
+  font-size:17px;
+  letter-spacing:0.01em;
   line-height:1.2;
+  color:var(--navy);
 }
 .brand-text span{
   display:block;
   font-family:'IBM Plex Mono',monospace;
   font-size:10px;
   color:var(--orange);
-  letter-spacing:0.12em;
+  letter-spacing:0.1em;
   text-transform:uppercase;
+  font-weight:500;
 }
 nav ul{
   display:flex;
@@ -125,7 +124,7 @@ nav ul{
   list-style:none;
 }
 nav a{
-  color:#E9E6DD;
+  color:var(--navy);
   font-family:'IBM Plex Mono',monospace;
   font-size:13px;
   letter-spacing:0.06em;
@@ -144,7 +143,7 @@ nav a:hover, nav a.active{
   nav ul{
     position:fixed;
     top:73px;left:0;right:0;
-    background:var(--navy);
+    background:#fff;
     flex-direction:column;
     gap:0;
     max-height:0;
@@ -153,12 +152,12 @@ nav a:hover, nav a.active{
     border-bottom:3px solid var(--orange);
   }
   nav ul.open{max-height:400px;}
-  nav li{width:100%;border-top:1px solid rgba(255,255,255,.08);}
+  nav li{width:100%;border-top:1px solid var(--line);}
   nav a{display:block;padding:16px 24px;}
   .nav-toggle{
     display:block;
     background:none;border:none;
-    color:#fff;font-size:26px;
+    color:var(--navy);font-size:26px;
     cursor:pointer;
   }
 }
@@ -207,10 +206,10 @@ nav a:hover, nav a.active{
   border:2px solid var(--orange);
   transition:background .2s,color .2s;
 }
-.btn-solid{background:var(--orange);color:var(--navy);font-weight:600;}
-.btn-solid:hover{background:#fff;border-color:#fff;}
+.btn-solid{background:var(--orange);color:#fff;font-weight:600;}
+.btn-solid:hover{background:var(--navy);border-color:var(--navy);}
 .btn-outline{color:#fff;}
-.btn-outline:hover{background:var(--orange);color:var(--navy);}
+.btn-outline:hover{background:var(--orange);color:#fff;border-color:var(--orange);}
 
 /* spec panel beside hero, mimics an equipment nameplate */
 .spec-plate{
