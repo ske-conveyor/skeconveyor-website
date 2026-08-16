@@ -1,0 +1,67 @@
+<footer class="site-footer">
+  <div class="wrap grid grid-4">
+    <div>
+      <img src="/images/logo.png" alt="SK Engineers & Conveyors" height="40" style="filter: brightness(0) invert(1); opacity: 0.9;" />
+      <p class="tagline">Customized conveyor systems for optimal performance.</p>
+    </div>
+
+    <div>
+      <h4>Connect</h4>
+      <p><a href="mailto:marketing@skeconveyors.com">marketing@skeconveyors.com</a></p>
+      <p><a href="tel:+918791282425">+91-87912 82425</a><br/><a href="tel:+916006646676">+91-60066 46676</a></p>
+    </div>
+
+    <div>
+      <h4>Address</h4>
+      <p>105-D, Pocket-B, Dilshad Garden,<br/>Delhi-110095, India</p>
+    </div>
+
+    <div>
+      <h4>Registered as</h4>
+      <p class="mono">GSTIN: 07BOKPK0324N1ZT<br/>IEC: BOKPK0324N</p>
+    </div>
+  </div>
+
+  <div class="wrap bottom">
+    <span>© {new Date().getFullYear()} SK Engineers & Conveyor Systems. All rights reserved.</span>
+    <span class="socials">
+      <a href="#" aria-label="LinkedIn">LinkedIn</a>
+      <a href="#" aria-label="Instagram">Instagram</a>
+      <a href="#" aria-label="WhatsApp">WhatsApp</a>
+    </span>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--navy-950);
+    color: var(--steel-200, #dde3ea);
+    padding: 64px 0 24px;
+  }
+  .site-footer h4 {
+    color: var(--white);
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.8em;
+  }
+  .site-footer p, .site-footer a { color: rgba(255,255,255,0.72); font-size: 0.92rem; }
+  .site-footer a { text-decoration: none; }
+  .site-footer a:hover { color: var(--caution); }
+  .tagline { margin-top: 14px; max-width: 220px; }
+  .mono { font-family: var(--font-mono); font-size: 0.82rem; }
+  .bottom {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.5);
+  }
+  .socials { display: flex; gap: 18px; }
+  @media (max-width: 720px) { .site-footer .grid-4 { grid-template-columns: 1fr 1fr; } }
+</style>

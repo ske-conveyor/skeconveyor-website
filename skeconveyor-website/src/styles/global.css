@@ -1,0 +1,202 @@
+/* ============================================================
+   SK ENGINEERS & CONVEYORS — Design Tokens
+   Palette pulled from the brand logo (deep navy) and the actual
+   product photography (safety-orange/yellow machine bodies).
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+:root {
+  /* Color */
+  --navy-950: #0c1a33;
+  --navy-800: #15305c;
+  --navy-600: #2c5090;
+  --steel-100: #eef1f5;
+  --steel-200: #dde3ea;
+  --steel-400: #97a3b5;
+  --paper: #f6f5f2;
+  --ink: #14181f;
+  --ink-soft: #4a5568;
+  --signal: #d6531d;
+  --signal-dark: #b5431a;
+  --caution: #f2b705;
+  --white: #ffffff;
+
+  /* Type */
+  --font-display: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+  --font-body: 'Inter', -apple-system, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  /* Layout */
+  --max-width: 1180px;
+  --radius: 3px;
+  --shadow-card: 0 1px 2px rgba(12, 26, 51, 0.06), 0 8px 24px rgba(12, 26, 51, 0.05);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.05;
+  margin: 0 0 0.5em;
+  color: var(--navy-950);
+  letter-spacing: 0.2px;
+}
+
+h1 { font-size: clamp(2.6rem, 5vw, 4.4rem); font-weight: 600; }
+h2 { font-size: clamp(1.9rem, 3.2vw, 2.6rem); }
+h3 { font-size: 1.35rem; }
+
+p { margin: 0 0 1em; color: var(--ink-soft); }
+
+a { color: var(--navy-600); }
+
+.wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--signal-dark);
+  display: inline-block;
+  margin-bottom: 0.75em;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 13px 26px;
+  border-radius: var(--radius);
+  border: 1.5px solid transparent;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+}
+.btn:hover { transform: translateY(-1px); }
+
+.btn-signal {
+  background: var(--signal);
+  color: var(--white);
+}
+.btn-signal:hover { background: var(--signal-dark); }
+
+.btn-outline {
+  background: transparent;
+  border-color: var(--navy-800);
+  color: var(--navy-950);
+}
+.btn-outline:hover { background: var(--navy-950); color: var(--white); }
+
+.btn-outline-light {
+  background: transparent;
+  border-color: rgba(255,255,255,0.4);
+  color: var(--white);
+}
+.btn-outline-light:hover { background: rgba(255,255,255,0.12); border-color: var(--white); }
+
+section { padding: 88px 0; }
+@media (max-width: 720px) { section { padding: 56px 0; } }
+
+.section-steel { background: var(--steel-100); }
+.section-navy { background: var(--navy-950); color: var(--white); }
+.section-navy p { color: var(--steel-300, #c7cfda); }
+.section-navy h2, .section-navy h3 { color: var(--white); }
+
+.grid {
+  display: grid;
+  gap: 28px;
+}
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 900px) {
+  .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+}
+
+.card {
+  background: var(--white);
+  border: 1px solid var(--steel-200);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: var(--shadow-card);
+}
+
+/* Spec-sheet style rows — echoes the literal spec tables in the
+   product PDFs (Power Supply / Lifting Load / etc.) */
+.spec-list {
+  font-family: var(--font-mono);
+  font-size: 0.86rem;
+  border-top: 1px solid var(--steel-200);
+}
+.spec-list div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--steel-200);
+}
+.spec-list dt { color: var(--ink-soft); }
+.spec-list dd { margin: 0; color: var(--navy-950); font-weight: 500; text-align: right; }
+
+.tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--steel-100);
+  color: var(--navy-800);
+  border: 1px solid var(--steel-200);
+}
+
+img { max-width: 100%; display: block; }
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--signal);
+  color: white;
+  padding: 10px 16px;
+  z-index: 100;
+}
+.skip-link:focus { left: 12px; top: 12px; }
+
+:focus-visible {
+  outline: 3px solid var(--caution);
+  outline-offset: 2px;
+}

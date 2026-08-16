@@ -1,0 +1,77 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Contact" description="Get in touch with SK Engineers & Conveyor Systems for a custom conveyor quote.">
+  <section class="hero-sm">
+    <div class="wrap">
+      <span class="eyebrow">Contact</span>
+      <h1>Let's talk about your material flow.</h1>
+      <p class="lead">Share a few details and we'll get back with next steps — typically within one business day.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap grid grid-2 contact-grid">
+      <div class="card">
+        <h3>Request a Quote</h3>
+        <form id="quote-form">
+          <label>Name<input type="text" name="name" required /></label>
+          <label>Company<input type="text" name="company" /></label>
+          <label>Phone<input type="tel" name="phone" required /></label>
+          <label>Email<input type="email" name="email" required /></label>
+          <label>What do you need?<textarea name="message" rows="4" placeholder="e.g. Telescopic conveyor for truck loading, 12m reach, 500kg cartons" required></textarea></label>
+          <button type="submit" class="btn btn-signal" style="width:100%; justify-content:center;">Send Request</button>
+          <p class="form-note">This opens a pre-filled email to marketing@skeconveyors.com. <em>(Phase 2: this will submit directly without opening your email app.)</em></p>
+        </form>
+      </div>
+
+      <div class="details">
+        <h3>Direct Contact</h3>
+        <dl class="spec-list">
+          <div><dt>Email</dt><dd><a href="mailto:marketing@skeconveyors.com">marketing@skeconveyors.com</a></dd></div>
+          <div><dt>Phone</dt><dd><a href="tel:+918791282425">+91-87912 82425</a></dd></div>
+          <div><dt>Phone (alt)</dt><dd><a href="tel:+916006646676">+91-60066 46676</a></dd></div>
+          <div><dt>Address</dt><dd>105-D, Pocket-B, Dilshad Garden, Delhi-110095</dd></div>
+        </dl>
+
+        <div class="map-note card">
+          <p>Embed a Google Map here once you share the exact pin location / embed code.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero-sm { padding-top: 56px; padding-bottom: 24px; }
+  .lead { max-width: 58ch; font-size: 1.05rem; }
+  .contact-grid { align-items: start; }
+  form { display: flex; flex-direction: column; gap: 14px; margin-top: 16px; }
+  label { display: flex; flex-direction: column; gap: 6px; font-size: 0.85rem; font-weight: 600; color: var(--navy-950); }
+  input, textarea {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    padding: 11px 12px;
+    border: 1.5px solid var(--steel-200);
+    border-radius: var(--radius);
+    background: var(--paper);
+  }
+  input:focus, textarea:focus { border-color: var(--navy-600); outline: none; }
+  .form-note { font-size: 0.78rem; color: var(--ink-soft); margin-top: 4px; }
+  .details h3 { margin-bottom: 10px; }
+  .map-note { margin-top: 24px; text-align: center; color: var(--ink-soft); font-size: 0.88rem; }
+</style>
+
+<script>
+  const form = document.getElementById('quote-form') as HTMLFormElement | null;
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const subject = encodeURIComponent(`Quote request — ${data.get('company') || data.get('name')}`);
+    const body = encodeURIComponent(
+      `Name: ${data.get('name')}\nCompany: ${data.get('company')}\nPhone: ${data.get('phone')}\nEmail: ${data.get('email')}\n\nRequirement:\n${data.get('message')}`
+    );
+    window.location.href = `mailto:marketing@skeconveyors.com?subject=${subject}&body=${body}`;
+  });
+</script>

@@ -1,0 +1,75 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Drop official logo files into /public/images/clients/ using these
+// exact filenames, and the placeholders below will automatically
+// be replaced by the real logos — no code change needed.
+const clients = [
+  { name: 'Britannia', file: '/images/clients/britannia.png' },
+  { name: 'Godrej', file: '/images/clients/godrej.png' },
+];
+---
+
+<Layout title="Clients" description="Companies that trust SK Engineers & Conveyor Systems with their material handling.">
+  <section class="hero-sm">
+    <div class="wrap">
+      <span class="eyebrow">Clients</span>
+      <h1>Trusted by teams who can't afford downtime.</h1>
+      <p class="lead">A selection of the companies we've engineered conveyor and material-handling systems for.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="grid grid-4 logo-grid">
+        {clients.map((c) => (
+          <div class="logo-card">
+            <img src={c.file} alt={`${c.name} logo`} onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="logo-fallback" style="display:none;">{c.name}</div>
+          </div>
+        ))}
+      </div>
+      <p class="note">Logo files pending upload to <code>/public/images/clients/</code> — see project README.</p>
+    </div>
+  </section>
+
+  <section class="section-navy">
+    <div class="wrap cta-final">
+      <div>
+        <h2>Want to be next?</h2>
+        <p>Let's talk about your material flow and what a tailored conveyor system could do for it.</p>
+      </div>
+      <a href="/contact" class="btn btn-signal">Get in Touch</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero-sm { padding-top: 56px; padding-bottom: 24px; }
+  .lead { max-width: 60ch; font-size: 1.05rem; }
+  .logo-grid { align-items: stretch; }
+  .logo-card {
+    background: var(--white);
+    border: 1px solid var(--steel-200);
+    border-radius: var(--radius);
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  .logo-card img { max-height: 60px; width: auto; margin: 0 auto; filter: grayscale(1); opacity: 0.75; transition: filter 0.2s, opacity 0.2s; }
+  .logo-card:hover img { filter: grayscale(0); opacity: 1; }
+  .logo-fallback {
+    width: 100%; height: 100%;
+    align-items: center; justify-content: center;
+    font-family: var(--font-display); font-size: 1.4rem;
+    color: var(--steel-400);
+  }
+  .note { margin-top: 20px; font-size: 0.85rem; color: var(--ink-soft); }
+  .note code { font-family: var(--font-mono); background: var(--steel-100); padding: 2px 6px; border-radius: 2px; }
+  .cta-final {
+    display: flex; justify-content: space-between; align-items: center; gap: 24px;
+  }
+  @media (max-width: 720px) { .cta-final { flex-direction: column; align-items: flex-start; } }
+</style>

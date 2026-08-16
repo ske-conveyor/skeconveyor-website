@@ -1,0 +1,101 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const competencies = [
+  'Expert Design & Engineering',
+  'Precision Manufacturing',
+  'Seamless Installation & Commissioning',
+  'Comprehensive Maintenance & Support',
+];
+---
+
+<Layout title="About Us" description="SK Engineers & Conveyor Systems — company overview, leadership, and core competencies.">
+  <section class="hero-sm">
+    <div class="wrap">
+      <span class="eyebrow">About SK Engineers</span>
+      <h1>New company. Decades of hands-on&nbsp;experience.</h1>
+      <p class="lead">
+        SK Engineers &amp; Conveyor Systems was founded two years ago — but the team
+        behind it has spent over a decade designing, manufacturing and installing
+        conveyor systems across belt, roller, spiral and telescopic applications.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap grid grid-2 story">
+      <div>
+        <img src="/images/team-site-visit.png" alt="SK Engineers team on a client site inspection" style="border-radius: 3px; box-shadow: var(--shadow-card);" />
+      </div>
+      <div>
+        <h2>Industry veterans, customer-first approach</h2>
+        <p>While SK Engineers is a young company, our team brings decades of experience in designing, manufacturing, and installing conveyor systems. We partner with clients to create tailored conveyor systems that optimize their operations — your success is our priority, and we're committed to exceeding expectations on every project.</p>
+        <p>We adhere to rigorous quality standards and sustainable practices to deliver dependable, environmentally friendly products, backed by dedicated after-sales support for long-term partnership.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-steel">
+    <div class="wrap grid grid-2 ceo">
+      <div>
+        <span class="eyebrow">Leadership</span>
+        <h2>Meet Our Founder</h2>
+      </div>
+      <div class="card">
+        <h3>Mr. Arpit Kumar Singhal</h3>
+        <p class="role">Founder &amp; CEO</p>
+        <p>A visionary leader with a proven track record in transforming operations. With 15+ years of expertise in maintenance and project management, he has delivered high-impact solutions across diverse industries.</p>
+        <p>With a strong foundation in engineering and a Master's degree, he has implemented Kaizen methodologies, optimized resource allocation, and driven significant cost reductions — with achievements including research publications, team leadership, and recognition from the Vice President of India.</p>
+        <blockquote>"Optimizing material flow for a more sustainable and profitable operation is at the core of our mission."</blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <span class="eyebrow">Core Competencies</span>
+      <h2>What we're built to deliver</h2>
+      <div class="grid grid-4">
+        {competencies.map((c, i) => (
+          <div class="card comp-card">
+            <span class="comp-num">0{i + 1}</span>
+            <p>{c}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-navy">
+    <div class="wrap grid grid-2">
+      <div>
+        <span class="eyebrow" style="color: var(--caution);">Mission</span>
+        <p style="color: white; font-size: 1.1rem;">Empowering businesses through reliable, efficient, and sustainable conveyor solutions.</p>
+      </div>
+      <div>
+        <span class="eyebrow" style="color: var(--caution);">Vision</span>
+        <p style="color: white; font-size: 1.1rem;">To be a leading name in innovative conveyor technology, delivering exceptional value to every client.</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero-sm { padding-top: 56px; padding-bottom: 24px; }
+  .lead { max-width: 62ch; font-size: 1.05rem; }
+  .story { align-items: center; }
+  .ceo { align-items: start; }
+  .role { font-family: var(--font-mono); font-size: 0.8rem; color: var(--signal-dark); text-transform: uppercase; letter-spacing: 0.06em; }
+  blockquote {
+    margin: 20px 0 0;
+    padding-left: 16px;
+    border-left: 3px solid var(--signal);
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    color: var(--navy-950);
+    font-style: normal;
+  }
+  .comp-card { text-align: left; }
+  .comp-num { font-family: var(--font-mono); color: var(--signal); font-size: 0.85rem; }
+  .comp-card p { margin-top: 10px; color: var(--navy-950); font-weight: 600; font-family: var(--font-body); }
+</style>

@@ -1,0 +1,72 @@
+---
+// Four boom segments that telescope outward on load, mirroring the
+// "basic size -> all boom extended" sequence from the product deck.
+---
+<div class="boom-wrap" aria-hidden="true">
+  <svg viewBox="0 0 640 220" xmlns="http://www.w3.org/2000/svg" class="boom">
+    <!-- support legs -->
+    <line x1="80" y1="170" x2="80" y2="210" stroke="#97a3b5" stroke-width="6" stroke-linecap="round"/>
+    <line x1="150" y1="178" x2="150" y2="210" stroke="#97a3b5" stroke-width="6" stroke-linecap="round"/>
+
+    <!-- segment 4 (base, static) -->
+    <rect x="40" y="130" width="180" height="40" rx="4" fill="#15305c"/>
+    <rect x="40" y="130" width="180" height="8" fill="#2c5090"/>
+
+    <!-- segment 3 -->
+    <g class="seg seg-3">
+      <rect x="150" y="122" width="170" height="34" rx="4" fill="#2c5090"/>
+      <rect x="150" y="122" width="170" height="7" fill="#4d76b8"/>
+    </g>
+
+    <!-- segment 2 -->
+    <g class="seg seg-2">
+      <rect x="260" y="115" width="170" height="28" rx="4" fill="#d6531d"/>
+      <rect x="260" y="115" width="170" height="6" fill="#f2b705"/>
+    </g>
+
+    <!-- segment 1 (tip) -->
+    <g class="seg seg-1">
+      <rect x="370" y="108" width="150" height="22" rx="4" fill="#0c1a33"/>
+      <rect x="370" y="108" width="150" height="5" fill="#d6531d"/>
+    </g>
+
+    <!-- carton riding the belt -->
+    <g class="carton">
+      <rect x="0" y="0" width="26" height="22" rx="2" fill="#f2b705"/>
+      <line x1="0" y1="11" x2="26" y2="11" stroke="#b5431a" stroke-width="1.5"/>
+    </g>
+  </svg>
+</div>
+
+<style>
+  .boom-wrap {
+    width: 100%;
+    max-width: 620px;
+  }
+  .boom { width: 100%; height: auto; overflow: visible; }
+
+  .seg { transform: translateX(-46px); animation: extend 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
+  .seg-3 { animation-delay: 0.15s; }
+  .seg-2 { animation-delay: 0.32s; }
+  .seg-1 { animation-delay: 0.49s; }
+
+  @keyframes extend {
+    to { transform: translateX(0); }
+  }
+
+  .carton {
+    animation: ride 3.6s 1.3s ease-in-out infinite;
+    opacity: 0;
+  }
+  @keyframes ride {
+    0%   { transform: translate(90px, 150px); opacity: 0; }
+    8%   { opacity: 1; }
+    85%  { transform: translate(470px, 100px); opacity: 1; }
+    100% { transform: translate(500px, 96px); opacity: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .seg { animation: none; transform: none; }
+    .carton { animation: none; opacity: 0; }
+  }
+</style>

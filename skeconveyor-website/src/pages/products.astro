@@ -1,0 +1,145 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const conveyors = [
+  { name: 'Belt Conveyor', desc: 'High-speed, low-noise cargo transport with modular sizing and frequency-controlled speed.' },
+  { name: 'Slat Chain Conveyor', desc: 'Built for heavy, abrasive, or hot loads that roller/belt systems can\'t handle.' },
+  { name: 'Roller Conveyor', desc: 'Gravity or powered roller lines for cartons, totes and palletized goods.' },
+  { name: 'Spiral Conveyor', desc: 'Continuous vertical transfer between floors in a compact footprint.' },
+  { name: 'Curve Conveyor', desc: 'Smooth directional transfer with no relative movement against the belt — protects fragile loads, low noise.' },
+  { name: 'Flexi-Roller Conveyor', desc: 'Expandable, bendable roller track for flexible loading/unloading layouts.' },
+  { name: 'Reciprocating Vertical Lifter', desc: 'Continuous transfer of goods between upper and lower floors.' },
+  { name: 'Circulating Vertical Lifter', desc: 'Non-calibration standardized lifter, load capacity up to 2 tonnes.' },
+];
+
+const telescopicVariants = [
+  'Fixed Telescopic Belt Conveyor',
+  'Lifting Telescopic Belt Conveyor',
+  'Movable Telescopic Belt Conveyor',
+  'Drawer-Type Movable Telescopic Conveyor',
+  'Telescopic Belt Conveyor with Express Snoot',
+  'Track-Type Telescopic Belt Conveyor',
+  'Auto-Mobile Type Telescopic Belt Conveyor',
+];
+
+const telescopicFeatures = ['LED Light', 'Anti-Collision Bar', 'Front Control Buttons (both sides)', 'Transition Protection Roller'];
+
+const industries = ['Pharmacy', 'Express/Logistics', 'Printing', 'Auto Parts', 'Light Industry', 'Food', 'Tobacco', 'Energy', 'Electronics'];
+
+const customEquipment = ['Fluid Bed Dryer', 'Hand Wash Station', 'Hopper Topper', 'Scissor Lift', 'Glass Cullet Trolley', 'Conveyor Hood', 'Storage Rack', 'Storage Trolley', 'Tool Change Trolley', 'Change Part Trolley', 'Timing Belt', 'Sealing Jaw Set'];
+
+const spares = ['Conveyor Belt', 'Modular Belt', 'Leveller Pad', 'Rollers', 'PLC', 'Bearings', 'Limit Switch', 'Photoelectric Sensor', 'Slat Chain', 'Pneumatic Cylinder'];
+---
+
+<Layout title="Products" description="Belt, roller, spiral, telescopic and vertical lifter conveyor systems, plus customizable equipment and spares.">
+  <section class="hero-sm">
+    <div class="wrap">
+      <span class="eyebrow">Product Range</span>
+      <h1>Engineered for the load,<br/>not the catalogue page.</h1>
+      <p class="lead">Every system below is a starting configuration — final specs (length, load capacity, frame material, control system) are matched to your site and throughput.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="grid grid-3">
+        {conveyors.map((c) => (
+          <div class="card">
+            <h3>{c.name}</h3>
+            <p>{c.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-steel telescopic">
+    <div class="wrap grid grid-2">
+      <div>
+        <span class="eyebrow">Flagship Line</span>
+        <h2>Telescopic Conveyors — 7 configurations</h2>
+        <p>Our most requested product for truck/container loading and unloading. The boom extends in sequence, section by section, to reach deep into a trailer without the vehicle moving.</p>
+        <ul class="variant-list">
+          {telescopicVariants.map((v) => <li>{v}</li>)}
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Standard Features</h3>
+        <ul class="feature-list">
+          {telescopicFeatures.map((f) => <li>{f}</li>)}
+        </ul>
+        <h3 style="margin-top: 24px;">Applications</h3>
+        <div class="industry-row">
+          {industries.map((i) => <span class="tag">{i}</span>)}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap grid grid-2">
+      <div class="card">
+        <span class="eyebrow">Sample Specification</span>
+        <h3>Reciprocating Vertical Lifter</h3>
+        <dl class="spec-list">
+          <div><dt>Power supply</dt><dd>AC 380V / 3-phase 5-wire</dd></div>
+          <div><dt>Elevator load</dt><dd>0 – 2000 kg</dd></div>
+          <div><dt>Motor power</dt><dd>≤ 22 kW (with brake)</dd></div>
+          <div><dt>Lifting speed</dt><dd>120 m/min</dd></div>
+          <div><dt>Lifting cargo size</dt><dd>Customizable</dd></div>
+          <div><dt>Conveyor type</dt><dd>Roller / Chain / Belt</dd></div>
+          <div><dt>Frame material</dt><dd>Aluminum / carbon steel / stainless</dd></div>
+        </dl>
+      </div>
+      <div>
+        <h2>Application: continuous multi-floor transfer</h2>
+        <p>Designed for continuous transfer of goods between upper and lower floors — used by clients including SF Express, GREE and DEYE for warehouse and production-line integration.</p>
+        <a href="/contact" class="btn btn-outline">Ask About This Spec →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-navy">
+    <div class="wrap grid grid-2">
+      <div>
+        <span class="eyebrow" style="color: var(--caution);">Customizable Equipment</span>
+        <p>Beyond conveyors, we fabricate application-specific stainless steel and structural equipment.</p>
+        <div class="industry-row">
+          {customEquipment.map((e) => <span class="tag tag-dark">{e}</span>)}
+        </div>
+      </div>
+      <div>
+        <span class="eyebrow" style="color: var(--caution);">Spares</span>
+        <p>Keep existing lines running with genuine replacement components.</p>
+        <div class="industry-row">
+          {spares.map((s) => <span class="tag tag-dark">{s}</span>)}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap cta-final">
+      <div>
+        <h2>Not sure which configuration fits?</h2>
+        <p>Send us your layout and load requirements — we'll recommend a system, not just quote a part number.</p>
+      </div>
+      <a href="/contact" class="btn btn-signal">Request a Quote</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero-sm { padding-top: 56px; padding-bottom: 24px; }
+  .lead { max-width: 62ch; font-size: 1.05rem; }
+  .telescopic { align-items: start; }
+  .variant-list, .feature-list { margin: 16px 0 0; padding-left: 20px; color: var(--ink-soft); }
+  .variant-list li, .feature-list li { margin-bottom: 8px; }
+  .industry-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+  .tag-dark { background: rgba(255,255,255,0.06); color: var(--white); border-color: rgba(255,255,255,0.18); }
+  .cta-final {
+    display: flex; justify-content: space-between; align-items: center; gap: 24px;
+    background: var(--steel-100); border: 1px solid var(--steel-200); border-radius: var(--radius); padding: 48px;
+  }
+  @media (max-width: 720px) { .cta-final { flex-direction: column; align-items: flex-start; } }
+</style>

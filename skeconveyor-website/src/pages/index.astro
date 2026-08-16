@@ -1,0 +1,138 @@
+---
+import Layout from '../layouts/Layout.astro';
+import TelescopicBoom from '../components/TelescopicBoom.astro';
+
+const productLines = [
+  { name: 'Belt Conveyor', note: 'High-speed, low-noise, modular' },
+  { name: 'Roller Conveyor', note: 'Gravity & powered' },
+  { name: 'Slat Chain Conveyor', note: 'Heavy-load transport' },
+  { name: 'Spiral Conveyor', note: 'Vertical transfer, small footprint' },
+  { name: 'Telescopic Conveyor', note: '6 configurations — fixed to auto-mobile' },
+  { name: 'Vertical Lifter', note: 'Reciprocating & circulating, up to 2t' },
+  { name: 'Flexi-Roller Conveyor', note: 'Expandable, curve-capable' },
+  { name: 'Curve Conveyor', note: 'Smooth directional transfer' },
+];
+
+const industries = ['Automotive', 'Warehousing & E-commerce', 'Food & Beverage', 'Pharmaceutical', 'Mining', 'Agriculture'];
+---
+
+<Layout title="Custom Conveyor Systems">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">SK Engineers &amp; Conveyor Systems · Delhi, India</span>
+        <h1>Material flow,<br/>engineered to extend<br/>exactly as far as you need.</h1>
+        <p class="lead">
+          We design, manufacture and install belt, roller, spiral and telescopic
+          conveyor systems for factories and warehouses — built to your layout,
+          not a catalogue.
+        </p>
+        <div class="hero-cta">
+          <a href="/contact" class="btn btn-signal">Request a Quote</a>
+          <a href="/products" class="btn btn-outline">See Product Range</a>
+        </div>
+      </div>
+      <TelescopicBoom />
+    </div>
+  </section>
+
+  <section class="section-steel">
+    <div class="wrap">
+      <div class="grid grid-3 stats">
+        <div>
+          <span class="stat-num">15+</span>
+          <span class="stat-label">Years combined team experience</span>
+        </div>
+        <div>
+          <span class="stat-num">8</span>
+          <span class="stat-label">Conveyor product lines</span>
+        </div>
+        <div>
+          <span class="stat-num">95%</span>
+          <span class="stat-label">Customer satisfaction target</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <span class="eyebrow">What We Build</span>
+      <h2>A product line for every material-handling problem</h2>
+      <p class="section-intro">From a single roller line to a full FG/DG loading automation system — every product below is engineered and customized for the application, not sold off-the-shelf.</p>
+
+      <div class="grid grid-4 product-teaser">
+        {productLines.map((p) => (
+          <div class="card p-card">
+            <h3>{p.name}</h3>
+            <p>{p.note}</p>
+          </div>
+        ))}
+      </div>
+      <a href="/products" class="btn btn-outline" style="margin-top: 28px;">View Full Product Range →</a>
+    </div>
+  </section>
+
+  <section class="section-navy">
+    <div class="wrap">
+      <span class="eyebrow" style="color: var(--caution);">Industries Served</span>
+      <h2>Wherever material has to move, reliably</h2>
+      <div class="industry-row">
+        {industries.map((i) => <span class="tag tag-dark">{i}</span>)}
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap cta-final">
+      <div>
+        <h2>Tell us what you're moving —<br/>we'll engineer how.</h2>
+        <p>Share your layout, load and throughput requirements. We'll respond with a tailored recommendation, not a generic brochure.</p>
+      </div>
+      <a href="/contact" class="btn btn-signal">Get a Quote</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero { padding-top: 64px; padding-bottom: 72px; }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .lead { font-size: 1.08rem; max-width: 46ch; }
+  .hero-cta { display: flex; gap: 14px; margin-top: 8px; flex-wrap: wrap; }
+  @media (max-width: 880px) { .hero-grid { grid-template-columns: 1fr; } }
+
+  .stats { text-align: center; }
+  .stat-num {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 3rem;
+    color: var(--navy-950);
+    font-weight: 700;
+  }
+  .stat-label { font-family: var(--font-mono); font-size: 0.8rem; color: var(--ink-soft); }
+
+  .section-intro { max-width: 60ch; }
+  .p-card h3 { font-size: 1.05rem; margin-bottom: 0.3em; }
+  .p-card p { font-size: 0.88rem; margin: 0; }
+
+  .industry-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+  .tag-dark { background: rgba(255,255,255,0.06); color: var(--white); border-color: rgba(255,255,255,0.18); }
+
+  .cta-final {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    background: var(--steel-100);
+    border: 1px solid var(--steel-200);
+    border-radius: var(--radius);
+    padding: 48px;
+  }
+  .cta-final p { max-width: 50ch; }
+  @media (max-width: 720px) { .cta-final { flex-direction: column; align-items: flex-start; } }
+</style>
