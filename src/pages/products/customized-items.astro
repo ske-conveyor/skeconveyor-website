@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import { slugify } from '../../utils/slug';
 
 const items = ['Fluid Bed Dryer', 'Hand Wash Station', 'Hopper Topper', 'Pineapple Peeler', 'Scissor Lift', 'Glass Cullet Trolley', 'Bar Stool', 'Conveyor Hood', 'Storage Rack', 'Eco Sign Projector', 'Cheese Roll Trolley', 'Storage Trolley', 'Tool Change Trolley', 'Tool Cart Trolley', 'Change Part Trolley', 'UHM', 'Timing Belt', 'Tea with Cupboard Trolley', 'Sealing Jaw Set'];
 ---
@@ -18,7 +19,15 @@ const items = ['Fluid Bed Dryer', 'Hand Wash Station', 'Hopper Topper', 'Pineapp
     <div class="wrap">
       <div class="grid grid-4 item-grid">
         {items.map((i) => (
-          <div class="item-card">{i}</div>
+          <div class="item-card">
+            <img
+              class="thumb smart-img"
+              data-base={`/images/products/customized-items/${slugify(i)}`}
+              alt={i}
+              loading="lazy"
+            />
+            <span>{i}</span>
+          </div>
         ))}
       </div>
     </div>
@@ -50,6 +59,15 @@ const items = ['Fluid Bed Dryer', 'Hand Wash Station', 'Hopper Topper', 'Pineapp
     font-size: 0.94rem;
     color: var(--navy-950);
   }
+  .item-card .thumb {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: var(--radius);
+    margin-bottom: 12px;
+    background: var(--steel-100);
+  }
+  .item-card .thumb.hidden { display: none; }
   .cta-final { display: flex; justify-content: space-between; align-items: center; gap: 24px; }
   @media (max-width: 720px) { .cta-final { flex-direction: column; align-items: flex-start; } }
 </style>

@@ -30,5 +30,25 @@ const {
       <slot />
     </main>
     <Footer />
+    <script>
+      // Tries multiple file extensions for product images so it doesn't
+      // matter whether a gallery photo was saved as .jpg, .png, or .webp —
+      // only the base filename (before the extension) needs to match.
+      const EXTS = ['jpg', 'jpeg', 'png', 'webp'];
+      document.querySelectorAll<HTMLImageElement>('img.smart-img[data-base]').forEach((img) => {
+        let i = 0;
+        const base = img.dataset.base;
+        const tryNext = () => {
+          if (i >= EXTS.length) {
+            img.classList.add('hidden');
+            img.removeEventListener('error', tryNext);
+            return;
+          }
+          img.src = `${base}.${EXTS[i++]}`;
+        };
+        img.addEventListener('error', tryNext);
+        tryNext();
+      });
+    </script>
   </body>
 </html>

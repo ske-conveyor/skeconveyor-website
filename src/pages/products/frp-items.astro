@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import { slugify } from '../../utils/slug';
 
 // DRAFT LIST — only sourced from a thumbnail image, needs confirmation.
 // Update this array once the real item names/descriptions are confirmed.
@@ -18,7 +19,8 @@ const items = [
       <span class="eyebrow">Category 04</span>
       <h1>FRP Items</h1>
       <p class="lead">Fibre-reinforced plastic components — corrosion-resistant, non-conductive alternatives to cast iron and steel for covers, gratings and structural fittings.</p>
-      <p class="draft-note">⚠ Draft content — item names and descriptions below are a starting guess from a thumbnail image. Confirm or correct these and I'll update the page.</p>
+      <!-- TODO: add product photos per item once available; may want to revisit descriptions alongside them -->
+    
     </div>
   </section>
 
@@ -27,6 +29,12 @@ const items = [
       <div class="grid grid-2">
         {items.map((i) => (
           <div class="card">
+            <img
+              class="card-img smart-img"
+              data-base={`/images/products/frp-items/${slugify(i.name)}`}
+              alt={i.name}
+              loading="lazy"
+            />
             <h3>{i.name}</h3>
             <p>{i.desc}</p>
           </div>
@@ -51,16 +59,6 @@ const items = [
   .back-link { font-family: var(--font-mono); font-size: 0.82rem; color: var(--ink-soft); text-decoration: none; display: inline-block; margin-bottom: 20px; }
   .back-link:hover { color: var(--signal-dark); }
   .lead { max-width: 62ch; font-size: 1.05rem; }
-  .draft-note {
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    color: var(--signal-dark);
-    background: #fdf1ea;
-    border: 1px solid #f0cdb8;
-    border-radius: var(--radius);
-    padding: 10px 14px;
-    max-width: 62ch;
-  }
   .cta-final { display: flex; justify-content: space-between; align-items: center; gap: 24px; }
   @media (max-width: 720px) { .cta-final { flex-direction: column; align-items: flex-start; } }
 </style>

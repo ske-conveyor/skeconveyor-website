@@ -5,11 +5,20 @@ interface Props {
   description: string;
   itemCount: string;
   index: string;
+  image?: string;
 }
-const { href, title, description, itemCount, index } = Astro.props;
+const { href, title, description, itemCount, index, image } = Astro.props;
 ---
 
 <a href={href} class="cat-card">
+  {image && (
+    <img
+      class="cat-img smart-img"
+      data-base={image}
+      alt={title}
+      loading="lazy"
+    />
+  )}
   <span class="cat-index">{index}</span>
   <h3>{title}</h3>
   <p>{description}</p>
@@ -36,6 +45,15 @@ const { href, title, description, itemCount, index } = Astro.props;
     color: var(--signal-dark);
     margin-bottom: 14px;
   }
+  .cat-img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: var(--radius);
+    margin-bottom: 16px;
+    background: var(--steel-100);
+  }
+  .cat-img.hidden { display: none; }
   .cat-card h3 { margin-bottom: 8px; }
   .cat-card p { font-size: 0.92rem; flex-grow: 1; }
   .cat-meta {

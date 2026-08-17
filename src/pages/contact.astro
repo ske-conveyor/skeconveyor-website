@@ -35,8 +35,16 @@ import Layout from '../layouts/Layout.astro';
           <div><dt>Address</dt><dd>105-D, Pocket-B, Dilshad Garden, Delhi-110095</dd></div>
         </dl>
 
-        <div class="map-note card">
-          <p>Embed a Google Map here once you share the exact pin location / embed code.</p>
+        <div class="map-embed">
+          <iframe
+            title="SK Engineers & Conveyor Systems location"
+            src="https://www.google.com/maps?q=105-D,+Pocket-B,+Dilshad+Garden,+Delhi-110095&output=embed"
+            width="100%"
+            height="260"
+            style="border:0;"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
         </div>
       </div>
     </div>
@@ -60,7 +68,13 @@ import Layout from '../layouts/Layout.astro';
   input:focus, textarea:focus { border-color: var(--navy-600); outline: none; }
   .form-note { font-size: 0.78rem; color: var(--ink-soft); margin-top: 4px; }
   .details h3 { margin-bottom: 10px; }
-  .map-note { margin-top: 24px; text-align: center; color: var(--ink-soft); font-size: 0.88rem; }
+  .map-embed {
+    margin-top: 24px;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--steel-200);
+  }
+  .map-embed iframe { display: block; }
 </style>
 
 <script>

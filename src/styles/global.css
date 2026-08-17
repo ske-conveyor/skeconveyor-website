@@ -185,6 +185,16 @@ section { padding: 88px 0; }
 
 img { max-width: 100%; display: block; }
 
+.card-img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius);
+  margin-bottom: 16px;
+  background: var(--steel-100);
+}
+.card-img.hidden { display: none; }
+
 .skip-link {
   position: absolute;
   left: -999px;

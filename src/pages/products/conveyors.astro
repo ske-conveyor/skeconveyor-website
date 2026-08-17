@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import { slugify } from '../../utils/slug';
 
 const conveyors = [
   { name: 'Belt Conveyor', desc: 'High-speed, low-noise cargo transport with modular sizing and frequency-controlled speed.' },
@@ -41,6 +42,12 @@ const industries = ['Pharmacy', 'Express/Logistics', 'Printing', 'Auto Parts', '
       <div class="grid grid-3">
         {conveyors.map((c) => (
           <div class="card">
+            <img
+              class="card-img smart-img"
+              data-base={`/images/products/conveyors/${slugify(c.name)}`}
+              alt={c.name}
+              loading="lazy"
+            />
             <h3>{c.name}</h3>
             <p>{c.desc}</p>
           </div>
