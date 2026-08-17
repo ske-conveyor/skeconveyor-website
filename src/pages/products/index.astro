@@ -1,0 +1,67 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CategoryCard from '../../components/CategoryCard.astro';
+---
+
+<Layout title="Products" description="Conveyors, customized items, spare parts and FRP items from SK Engineers & Conveyor Systems.">
+  <section class="hero-sm">
+    <div class="wrap">
+      <span class="eyebrow">Product Range</span>
+      <h1>Four categories.<br/>Everything you need to keep material moving.</h1>
+      <p class="lead">Browse by category below, or tell us your requirement directly and we'll point you to the right system.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="grid grid-2 cat-grid">
+        <CategoryCard
+          index="01"
+          href="/products/conveyors"
+          title="Conveyors"
+          description="Belt, roller, slat chain, spiral, telescopic and vertical lifter systems — engineered to your layout and load."
+          itemCount="8 product lines"
+        />
+        <CategoryCard
+          index="02"
+          href="/products/customized-items"
+          title="Customized Items"
+          description="Application-specific stainless steel and structural equipment, fabricated to spec beyond standard conveyors."
+          itemCount="18 items"
+        />
+        <CategoryCard
+          index="03"
+          href="/products/spares"
+          title="Spare Parts"
+          description="Genuine replacement components to keep existing conveyor lines running without downtime."
+          itemCount="10 items"
+        />
+        <CategoryCard
+          index="04"
+          href="/products/frp-items"
+          title="FRP Items"
+          description="Fibre-reinforced plastic manhole covers, gratings and related infrastructure components."
+          itemCount="View items"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section-navy">
+    <div class="wrap cta-final">
+      <div>
+        <h2>Not sure which category fits?</h2>
+        <p>Send us your requirement and we'll recommend the right product — not just point you to a page.</p>
+      </div>
+      <a href="/contact" class="btn btn-signal">Get in Touch</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero-sm { padding-top: 56px; padding-bottom: 24px; }
+  .lead { max-width: 60ch; font-size: 1.05rem; }
+  .cat-grid { align-items: stretch; }
+  .cta-final { display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+  @media (max-width: 720px) { .cta-final { flex-direction: column; align-items: flex-start; } }
+</style>

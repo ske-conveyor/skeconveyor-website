@@ -1,0 +1,55 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const items = ['Fluid Bed Dryer', 'Hand Wash Station', 'Hopper Topper', 'Pineapple Peeler', 'Scissor Lift', 'Glass Cullet Trolley', 'Bar Stool', 'Conveyor Hood', 'Storage Rack', 'Eco Sign Projector', 'Cheese Roll Trolley', 'Storage Trolley', 'Tool Change Trolley', 'Tool Cart Trolley', 'Change Part Trolley', 'UHM', 'Timing Belt', 'Tea with Cupboard Trolley', 'Sealing Jaw Set'];
+---
+
+<Layout title="Customized Items" description="Application-specific stainless steel and structural equipment from SK Engineers & Conveyor Systems.">
+  <section class="hero-sm">
+    <div class="wrap">
+      <a href="/products" class="back-link">← All Categories</a>
+      <span class="eyebrow">Category 02</span>
+      <h1>Customized Items</h1>
+      <p class="lead">Beyond conveyors, we fabricate application-specific stainless steel and structural equipment — built to fit your process, not a standard part number.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="grid grid-4 item-grid">
+        {items.map((i) => (
+          <div class="item-card">{i}</div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-navy">
+    <div class="wrap cta-final">
+      <div>
+        <h2>Need something not listed here?</h2>
+        <p>This is a sample of what we've built — if it's stainless steel, structural, or process equipment, tell us the requirement.</p>
+      </div>
+      <a href="/contact" class="btn btn-signal">Get in Touch</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero-sm { padding-top: 56px; padding-bottom: 24px; }
+  .back-link { font-family: var(--font-mono); font-size: 0.82rem; color: var(--ink-soft); text-decoration: none; display: inline-block; margin-bottom: 20px; }
+  .back-link:hover { color: var(--signal-dark); }
+  .lead { max-width: 62ch; font-size: 1.05rem; }
+  .item-grid { gap: 14px; }
+  .item-card {
+    background: var(--white);
+    border: 1px solid var(--steel-200);
+    border-radius: var(--radius);
+    padding: 20px 18px;
+    font-weight: 600;
+    font-size: 0.94rem;
+    color: var(--navy-950);
+  }
+  .cta-final { display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+  @media (max-width: 720px) { .cta-final { flex-direction: column; align-items: flex-start; } }
+</style>

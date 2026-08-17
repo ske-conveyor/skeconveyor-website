@@ -1,0 +1,55 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const items = ['Conveyor Belt', 'Modular Belt', 'Leveller Pad', 'Rollers', 'PLC', 'Bearings', 'Limit Switch', 'Photoelectric Sensor', 'Slat Chain', 'Pneumatic Cylinder'];
+---
+
+<Layout title="Spare Parts" description="Genuine replacement components for conveyor systems from SK Engineers & Conveyor Systems.">
+  <section class="hero-sm">
+    <div class="wrap">
+      <a href="/products" class="back-link">← All Categories</a>
+      <span class="eyebrow">Category 03</span>
+      <h1>Spare Parts</h1>
+      <p class="lead">Genuine replacement components to keep existing conveyor lines running — whether it's a system we installed or one you already had.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="grid grid-4 item-grid">
+        {items.map((i) => (
+          <div class="item-card">{i}</div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-navy">
+    <div class="wrap cta-final">
+      <div>
+        <h2>Need a part fast?</h2>
+        <p>Tell us the make/model of your existing line and the part you need — we'll confirm availability and lead time.</p>
+      </div>
+      <a href="/contact" class="btn btn-signal">Request Spares</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero-sm { padding-top: 56px; padding-bottom: 24px; }
+  .back-link { font-family: var(--font-mono); font-size: 0.82rem; color: var(--ink-soft); text-decoration: none; display: inline-block; margin-bottom: 20px; }
+  .back-link:hover { color: var(--signal-dark); }
+  .lead { max-width: 62ch; font-size: 1.05rem; }
+  .item-grid { gap: 14px; }
+  .item-card {
+    background: var(--white);
+    border: 1px solid var(--steel-200);
+    border-radius: var(--radius);
+    padding: 20px 18px;
+    font-weight: 600;
+    font-size: 0.94rem;
+    color: var(--navy-950);
+  }
+  .cta-final { display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+  @media (max-width: 720px) { .cta-final { flex-direction: column; align-items: flex-start; } }
+</style>

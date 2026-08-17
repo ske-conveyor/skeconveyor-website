@@ -1,0 +1,66 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+// DRAFT LIST — only sourced from a thumbnail image, needs confirmation.
+// Update this array once the real item names/descriptions are confirmed.
+const items = [
+  { name: 'FRP Manhole Covers', desc: 'Round and square covers, load-rated for pedestrian and light-vehicle areas.' },
+  { name: 'FRP Drain / Gully Covers', desc: 'Corrosion-resistant covers for drainage and utility access points.' },
+  { name: 'FRP Gratings', desc: 'Anti-slip structural gratings for walkways and platforms.' },
+  { name: 'FRP Louvers', desc: 'Ventilation louvers for enclosures and structural openings.' },
+];
+---
+
+<Layout title="FRP Items" description="Fibre-reinforced plastic manhole covers, gratings and structural components.">
+  <section class="hero-sm">
+    <div class="wrap">
+      <a href="/products" class="back-link">← All Categories</a>
+      <span class="eyebrow">Category 04</span>
+      <h1>FRP Items</h1>
+      <p class="lead">Fibre-reinforced plastic components — corrosion-resistant, non-conductive alternatives to cast iron and steel for covers, gratings and structural fittings.</p>
+      <p class="draft-note">⚠ Draft content — item names and descriptions below are a starting guess from a thumbnail image. Confirm or correct these and I'll update the page.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="grid grid-2">
+        {items.map((i) => (
+          <div class="card">
+            <h3>{i.name}</h3>
+            <p>{i.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-navy">
+    <div class="wrap cta-final">
+      <div>
+        <h2>Looking for a specific FRP component?</h2>
+        <p>Tell us the size, load rating and application — we'll confirm what's available.</p>
+      </div>
+      <a href="/contact" class="btn btn-signal">Get in Touch</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero-sm { padding-top: 56px; padding-bottom: 24px; }
+  .back-link { font-family: var(--font-mono); font-size: 0.82rem; color: var(--ink-soft); text-decoration: none; display: inline-block; margin-bottom: 20px; }
+  .back-link:hover { color: var(--signal-dark); }
+  .lead { max-width: 62ch; font-size: 1.05rem; }
+  .draft-note {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--signal-dark);
+    background: #fdf1ea;
+    border: 1px solid #f0cdb8;
+    border-radius: var(--radius);
+    padding: 10px 14px;
+    max-width: 62ch;
+  }
+  .cta-final { display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+  @media (max-width: 720px) { .cta-final { flex-direction: column; align-items: flex-start; } }
+</style>

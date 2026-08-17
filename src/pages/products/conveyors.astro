@@ -1,5 +1,5 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from '../../layouts/Layout.astro';
 
 const conveyors = [
   { name: 'Belt Conveyor', desc: 'High-speed, low-noise cargo transport with modular sizing and frequency-controlled speed.' },
@@ -23,19 +23,15 @@ const telescopicVariants = [
 ];
 
 const telescopicFeatures = ['LED Light', 'Anti-Collision Bar', 'Front Control Buttons (both sides)', 'Transition Protection Roller'];
-
 const industries = ['Pharmacy', 'Express/Logistics', 'Printing', 'Auto Parts', 'Light Industry', 'Food', 'Tobacco', 'Energy', 'Electronics'];
-
-const customEquipment = ['Fluid Bed Dryer', 'Hand Wash Station', 'Hopper Topper', 'Scissor Lift', 'Glass Cullet Trolley', 'Conveyor Hood', 'Storage Rack', 'Storage Trolley', 'Tool Change Trolley', 'Change Part Trolley', 'Timing Belt', 'Sealing Jaw Set'];
-
-const spares = ['Conveyor Belt', 'Modular Belt', 'Leveller Pad', 'Rollers', 'PLC', 'Bearings', 'Limit Switch', 'Photoelectric Sensor', 'Slat Chain', 'Pneumatic Cylinder'];
 ---
 
-<Layout title="Products" description="Belt, roller, spiral, telescopic and vertical lifter conveyor systems, plus customizable equipment and spares.">
+<Layout title="Conveyors" description="Belt, roller, spiral, telescopic and vertical lifter conveyor systems.">
   <section class="hero-sm">
     <div class="wrap">
-      <span class="eyebrow">Product Range</span>
-      <h1>Engineered for the load,<br/>not the catalogue page.</h1>
+      <a href="/products" class="back-link">← All Categories</a>
+      <span class="eyebrow">Category 01</span>
+      <h1>Conveyors</h1>
       <p class="lead">Every system below is a starting configuration — final specs (length, load capacity, frame material, control system) are matched to your site and throughput.</p>
     </div>
   </section>
@@ -100,25 +96,6 @@ const spares = ['Conveyor Belt', 'Modular Belt', 'Leveller Pad', 'Rollers', 'PLC
   </section>
 
   <section class="section-navy">
-    <div class="wrap grid grid-2">
-      <div>
-        <span class="eyebrow" style="color: var(--caution);">Customizable Equipment</span>
-        <p>Beyond conveyors, we fabricate application-specific stainless steel and structural equipment.</p>
-        <div class="industry-row">
-          {customEquipment.map((e) => <span class="tag tag-dark">{e}</span>)}
-        </div>
-      </div>
-      <div>
-        <span class="eyebrow" style="color: var(--caution);">Spares</span>
-        <p>Keep existing lines running with genuine replacement components.</p>
-        <div class="industry-row">
-          {spares.map((s) => <span class="tag tag-dark">{s}</span>)}
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section>
     <div class="wrap cta-final">
       <div>
         <h2>Not sure which configuration fits?</h2>
@@ -131,15 +108,13 @@ const spares = ['Conveyor Belt', 'Modular Belt', 'Leveller Pad', 'Rollers', 'PLC
 
 <style>
   .hero-sm { padding-top: 56px; padding-bottom: 24px; }
+  .back-link { font-family: var(--font-mono); font-size: 0.82rem; color: var(--ink-soft); text-decoration: none; display: inline-block; margin-bottom: 20px; }
+  .back-link:hover { color: var(--signal-dark); }
   .lead { max-width: 62ch; font-size: 1.05rem; }
   .telescopic { align-items: start; }
   .variant-list, .feature-list { margin: 16px 0 0; padding-left: 20px; color: var(--ink-soft); }
   .variant-list li, .feature-list li { margin-bottom: 8px; }
   .industry-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
-  .tag-dark { background: rgba(255,255,255,0.06); color: var(--white); border-color: rgba(255,255,255,0.18); }
-  .cta-final {
-    display: flex; justify-content: space-between; align-items: center; gap: 24px;
-    background: var(--steel-100); border: 1px solid var(--steel-200); border-radius: var(--radius); padding: 48px;
-  }
+  .cta-final { display: flex; justify-content: space-between; align-items: center; gap: 24px; }
   @media (max-width: 720px) { .cta-final { flex-direction: column; align-items: flex-start; } }
 </style>
